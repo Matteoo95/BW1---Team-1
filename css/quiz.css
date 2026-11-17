@@ -1,0 +1,237 @@
+
+/* PAGINA QUIZ */
+
+.quiz-page {
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* HEADER */
+
+.quiz-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+
+/* TIMER */
+
+.timer {
+    /* posizioniamo il testo dentro il timer */
+    position: relative;
+
+    width: 110px;
+    height: 110px;
+
+    /* evitiamo modifiche di dimensioniw */
+    flex: none;
+
+    margin-top: 0;
+}
+
+
+/* CERCHIO DEL TIMER */
+
+.timer-ring {
+    width: 100%;
+    height: 100%;
+
+    /* facciamo partire il cerchio dall'alto */
+    transform: rotate(-90deg);
+}
+
+
+/*  proprietà comuni ai due cerchi */
+.timer-track,
+.timer-progress {
+    /* nessun riempimento dei cerchi */
+    fill: none;
+
+    /* spessore del bordo */
+    stroke-width: 11;
+}
+
+
+/* CERCHIO SULLOSFONDO */
+
+.timer-track {
+    /* colore del cerchio con trasparenza */
+    stroke: rgba(244, 184, 239, .42);
+}
+
+
+/* CERCHIO CHE INDICA IL TEMPO */
+
+.timer-progress {
+    stroke: var(--cyan);
+
+    /* imposto le estremità della linea */
+    stroke-linecap: butt;
+
+    /* rendo graduale il movimento del cerchio */
+    transition: stroke-dashoffset .35s linear;
+}
+
+
+/* TESTO DENTRO IL TIMER */
+
+.timer-content {
+    position: absolute;
+
+    /* imposto tutti i lati a 0 per occupare il contenitore */
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* SCRITTE SECONDS E REMAINING */
+
+.timer-caption {
+    font-size: 8px;
+    line-height: 1.2;
+}
+
+
+/* NUMERO DEI SECONDI */
+
+.timer-seconds {
+    font-family: 'Outfit', sans-serif;
+    font-size: 36px;
+    font-weight: 400;
+    line-height: 1;
+}
+
+
+/* CONTENUTO PRINCIPALE DEL QUIZ */
+
+.quiz-main {
+    width: 100%;
+
+    /* occupo lo spazio disponibile nella pagina */
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 72px 0 60px;
+}
+
+
+/* TESTO DELLA DOMANDA */
+
+.question {
+    max-width: 690px;
+    min-height: 125px;
+
+    margin: 0 0 56px;
+    text-align: center;
+
+    /* adatto la dimensione del testo allo schermo */
+    font-size: clamp(33px, 5vw, 50px);
+
+    font-weight: 500;
+    line-height: 1.04;
+
+    /* mando a capo anche parole molto lunghe */
+    overflow-wrap: anywhere;
+}
+
+
+/* CONTENITORE DELLE RISPOSTE */
+
+.answers {
+    width: 100%;
+    max-width: 720px;
+
+    /* griglia di due colonne */
+    display: grid;
+
+    /*  due colonne della stessa larghezza */
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 20px 40px;
+
+    margin-bottom: auto;
+}
+
+
+/* PULSANTI DELLE RISPOSTE */
+
+.answer-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 70px;
+    padding: 14px 18px;
+
+    border: 3px solid rgba(255, 255, 255, .64);
+    border-radius: 60px;
+
+    background: rgba(255, 255, 255, .09);
+    color: #fff;
+
+    text-align: center;
+    font-weight: 700;
+    font-size: 15px;
+
+    /* mando a capo il testo se è troppo lungo */
+    overflow-wrap: anywhere;
+
+    /* rendo graduali le modifiche grafiche */
+    transition:
+        background .15s,
+        border-color .15s,
+        transform .15s;
+}
+
+
+/* RISPOSTA SELEZIONATA */
+
+/* cambio il colore quando passo con il mouse
+   oppure quando seleziono una risposta */
+
+.answer-button:hover:not(:disabled),
+.answer-button.selected {
+    /* creo una sfumatura dal rosa al viola */
+    background: linear-gradient(120deg, var(--pink), var(--purple));
+
+    border-color: rgba(255, 255, 255, .8);
+}
+
+
+/* RISPOSTA DISABILITATA */
+
+.answer-button:disabled {
+    cursor: default;
+}
+
+
+/* NUMERO DELLA DOMANDA */
+
+.question-progress {
+    margin: 80px 0 0;
+
+    font-family: 'Outfit', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+
+/* NUMERO TOTALE DELLE DOMANDE */
+
+.question-progress .total {
+    color: var(--pink);
+}

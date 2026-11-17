@@ -1,0 +1,78 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Results | EPICODE Benchmark</title>
+
+    <link rel="stylesheet" href="./css/global.css">
+    <link rel="stylesheet" href="./css/results.css">
+
+    <script src="./js/results.js" defer></script>
+</head>
+
+<body>
+
+    <div class="page">
+
+        <header class="site-header">
+            <img class="logo" src="./assets/epicode_logo.png" alt="EPICODE">
+        </header>
+
+        <main class="results-main">
+
+            <h1 class="results-title">Results</h1>
+
+            <p class="results-subtitle">
+                The summary of your answers:
+            </p>
+
+            <div class="results-summary">
+
+                <!-- RISPOSTE CORRETTE -->
+                <div class="score-stat">
+                    <h2 class="score-heading">Correct</h2>
+                    <p class="score-number" id="correct-percent">0%</p>
+                    <p class="score-detail" id="correct-count">0 / 10 questions</p>
+                </div>
+
+
+                <!-- GRAFICO DEI RISULTATI -->
+                <div class="score-visual" id="score-visual" aria-label="Score chart">
+
+                    <div class="score-inner">
+                        <strong id="score-center">0%</strong>
+                    </div>
+
+                </div>
+
+
+                <!-- RISPOSTE SBAGLIATE -->
+                <div class="score-stat">
+                    <h2 class="score-heading">Wrong</h2>
+                    <p class="score-number" id="wrong-percent">0%</p>
+                    <p class="score-detail" id="wrong-count">0 / 10 questions</p>
+                </div>
+
+            </div>
+
+
+            <p class="result-message" id="result-message">
+                Your exam is complete.
+            </p>
+
+
+            <!-- torno alla pagina iniziale per rifare il quiz -->
+            <a class="primary-button" href="./index.html">
+                TRY AGAIN
+            </a>
+
+        </main>
+
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,89 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Quiz | EPICODE Benchmark</title>
+
+    <link rel="stylesheet" href="./css/global.css">
+    <link rel="stylesheet" href="./css/quiz.css">
+
+    <!-- carico prima le domande e il timer, poi il quiz -->
+    <script src="./js/questions.js" defer></script>
+    <script src="./js/timer.js" defer></script>
+    <script src="./js/quiz.js" defer></script>
+</head>
+
+<body>
+
+    <div class="page quiz-page">
+
+        <header class="site-header quiz-header">
+
+            <img class="logo" src="./assets/epicode_logo.png" alt="EPICODE">
+
+            <!-- timer circolare realizzato con SVG -->
+            <div class="timer" role="timer" aria-label="Time remaining">
+
+                <svg class="timer-ring" viewBox="0 0 110 110" aria-hidden="true">
+
+                    <!-- cerchio di sfondo del timer -->
+                    <circle
+                        class="timer-track"
+                        cx="55"
+                        cy="55"
+                        r="49">
+                    </circle>
+
+                    <!-- cerchio che cambia durante il conto alla rovescia -->
+                    <circle
+                        class="timer-progress"
+                        id="timer-progress"
+                        cx="55"
+                        cy="55"
+                        r="49">
+                    </circle>
+
+                </svg>
+
+                <div class="timer-content">
+                    <span class="timer-caption">SECONDS</span>
+                    <span class="timer-seconds" id="timer-seconds">30</span>
+                    <span class="timer-caption">REMAINING</span>
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <main class="quiz-main">
+
+            <h1 id="question-text" class="question">
+                Loading question…
+            </h1>
+
+            <div
+                class="answers"
+                id="answers-container"
+                role="group"
+                aria-label="Choose one answer">
+            </div>
+
+            <p class="question-progress">
+                QUESTION
+                <span id="question-current">1</span>
+                <span class="total">
+                    / <span id="question-total">10</span>
+                </span>
+            </p>
+
+        </main>
+
+    </div>
+
+</body>
+</html>

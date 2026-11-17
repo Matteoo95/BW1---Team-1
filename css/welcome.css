@@ -1,0 +1,98 @@
+
+/* CONTENUTO PRINCIPALE */
+
+.welcome-main {
+    padding-top: 84px;
+    padding-bottom: 65px;
+}
+
+
+/* TITOLO WELCOME */
+
+.welcome-title {
+    /* adatto la grandezza del titolo allo schermo, minimo 48px e massimo 78px */
+    font-size: clamp(48px, 7vw, 78px);
+
+    font-weight: 400;
+
+    /* riduco la distanza tra le righe */
+    line-height: .83;
+
+    letter-spacing: -2px;
+    margin-bottom: 45px;
+}
+
+.welcome-title strong {
+    font-weight: 800;
+}
+
+
+/* ISTRUZIONI */
+
+.instructions-title {
+    margin: 0 0 5px;
+    font-size: 29px;
+    color: var(--pink);
+    font-weight: 700;
+}
+
+
+/* TESTO DELLE ISTRUZIONI */
+
+.instructions-intro {
+    max-width: 540px;
+    line-height: 1.3;
+    margin-bottom: 46px;
+}
+
+
+/* LISTA DELLE ISTRUZIONI */
+
+.instructions-list {
+    margin: 0;
+    padding-left: 24px;
+    line-height: 1.6;
+}
+
+
+/* CHECKBOX E PULSANTE */
+
+.welcome-actions {
+    display: flex;
+
+    /* metto il checkbox a sinistra e il pulsante a destra */
+    justify-content: space-between;
+
+    align-items: center;
+    gap: 28px;
+    margin-top: 90px;
+}
+
+
+/* TESTO DEL CHECKBOX */
+
+.promise-label {
+    /* uso flex per allineare checkbox e testo, mantenendo la label inline */
+    display: inline-flex;
+
+    align-items: center;
+    gap: 12px;
+    font-weight: 700;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+
+/* CHECKBOX */
+
+.promise-checkbox {
+    width: 19px;
+    height: 19px;
+    margin: 0;
+
+    /* cambio il colore del checkbox quando viene selezionato */
+    accent-color: var(--cyan);
+
+    /* impedisco al checkbox di restringersi o allargarsi con flex */
+    flex: none;
+}

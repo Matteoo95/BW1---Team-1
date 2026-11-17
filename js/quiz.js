@@ -37,8 +37,33 @@ function renderAnswers(answers) {
         // che vanno mostrati come testo, non interpretati dal browser
         answerButton.textContent = answer
         answersContainer.appendChild(answerButton)
+
+        // SELEZIONE: al click coloro solo la risposta scelta.
+        // La classe "selected" è definita in quiz.css da Matteo
+        answerButton.addEventListener("click", () =>{
+            // cerco solo dentro il contenitore delle risposte, non in tutta la pagina
+            const allButtons = answersContainer.getElementsByClassName("answer-button")
+
+            // prima tolgo "selected" da tutti, così è colorata sempre e solo una risposta
+            for (const button of allButtons){
+                button.classList.remove("selected")
+            }
+
+            // poi la aggiungo solo a quello cliccato.
+            answerButton.classList.add("selected")
+            //chiamo la funzione per memorizzare la risposta che farà Giuseppe, 
+            //passandogli la risposta selezionata 
+            submitAnswer(answer)
+        })
     }
 }
 
-// PROVA PER CHIAMARELA FUNZIONE: da togliere, sarà Giuseppe a chiamare renderQuestion
+// PROVA: submitAnswer è la funzione di Giuseppe
+// L'ho messa qui con un console.log solo per controllare che al click
+// arrivi il testo giusto. Da togliere quando c'è la sua versione vera
+function submitAnswer(answer) {
+    console.log("Risposta ricevuta:", answer)
+}
+
+// PROVA PER CHIAMARE LA FUNZIONE: da togliere, sarà Giuseppe a chiamare renderQuestion
 renderQuestion(testQuestion)

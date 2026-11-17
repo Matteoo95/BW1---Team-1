@@ -157,6 +157,7 @@ function extractAnswersQuestion() {
   return {
     question: questionData.question,
     answers: randomizeAnswers(answers),
+    correctAnswer: questionData.correct_answer,
   };
 }
 console.log(extractAnswersQuestion());

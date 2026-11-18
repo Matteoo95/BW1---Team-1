@@ -96,3 +96,33 @@
     /* impedisco al checkbox di restringersi o allargarsi con flex */
     flex: none;
 }
+
+
+/* RESPONSIVE */
+
+@media (max-width: 650px) {
+
+    .welcome-main {
+        padding-top: 72px;
+    }
+
+    .welcome-title {
+        line-height: .93;
+        margin-bottom: 35px;
+    }
+
+    .instructions-intro {
+        margin-bottom: 28px;
+    }
+
+    .welcome-actions {
+        /* metto checkbox e pulsante uno sotto l'altro */
+        margin-top: 55px;
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .primary-button {
+        width: 100%;
+    }
+}

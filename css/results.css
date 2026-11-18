@@ -1,0 +1,143 @@
+
+/* PAGINA RESULTS */
+
+.results-main {
+    padding: 105px 0 70px;
+    text-align: center;
+}
+
+
+/* TITOLO E SOTTOTITOLO */
+
+.results-title {
+    /* adatto il titolo allo schermo, da 46px a 66px */
+    font-size: clamp(46px, 7vw, 66px);
+    margin: 0 0 8px;
+    line-height: 1;
+}
+
+.results-subtitle {
+    font-family: 'Outfit', sans-serif;
+    font-size: 23px;
+    margin-bottom: 60px;
+}
+
+
+/* RISULTATI */
+
+.results-summary {
+    display: grid;
+
+    /* creo tre colonne, quella centrale è larga 220px */
+    grid-template-columns: 1fr 220px 1fr;
+
+    align-items: center;
+    gap: 16px;
+}
+
+.score-heading {
+    font-family: 'Outfit', sans-serif;
+    font-size: 25px;
+    margin: 0 0 5px;
+}
+
+.score-number {
+    font-family: 'Outfit', sans-serif;
+    font-size: 45px;
+    font-weight: 700;
+    margin: 0;
+}
+
+.score-detail {
+    font-size: 14px;
+    opacity: .75;
+}
+
+
+/* GRAFICO CIRCOLARE */
+
+.score-visual {
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    padding: 16px;
+
+    /* creo il grafico con due colori.
+       JS aggiorna la variabile --score-percent */
+    background: conic-gradient(
+        var(--cyan) 0 var(--score-percent, 0%),
+        var(--pink) var(--score-percent, 0%) 100%
+    );
+
+    display: grid;
+
+    /* centro il cerchio interno */
+    place-items: center;
+}
+
+.score-inner {
+    display: grid;
+    place-content: center;
+    width: 100%;
+    height: 100%;
+    background: #17113f;
+    border-radius: 50%;
+}
+
+.score-inner strong {
+    font-size: 39px;
+    font-family: 'Outfit', sans-serif;
+}
+
+
+/* MESSAGGIO FINALE */
+
+.result-message {
+    margin: 45px auto 40px;
+    max-width: 500px;
+    font-size: 19px;
+}
+
+
+/* PULSANTE TRY AGAIN */
+
+.results-main .primary-button {
+    text-decoration: none;
+
+    /* uso inline-flex per centrare il testo del link */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 650px) {
+
+    .results-main {
+        padding-top: 70px;
+    }
+
+    .results-summary {
+        /* su mobile dispongo i risultati in due colonne */
+        grid-template-columns: 1fr 1fr;
+        row-gap: 25px;
+    }
+
+    .score-visual {
+        /* il grafico occupa entrambe le colonne */
+        grid-column: 1 / -1;
+
+        /* posiziono il grafico nella prima riga */
+        grid-row: 1;
+
+        margin: auto;
+        width: 190px;
+        height: 190px;
+    }
+
+    .score-number {
+        font-size: 34px;
+    }
+}

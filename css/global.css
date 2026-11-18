@@ -173,3 +173,25 @@ h3 {
     /* elimino l'effetto neon */
     box-shadow: none;
 }
+
+
+/* RESPONSIVE */
+
+@media (max-width: 600px) {
+
+    .page {
+        width: calc(100% - 36px);
+    }
+
+    .site-header {
+        padding-top: 26px;
+    }
+
+    .logo {
+        width: 136px;
+    }
+
+    .primary-button {
+        min-height: 56px;
+    }
+}

@@ -1,8 +1,15 @@
-const score = 6
-const totalQuestions = 10
+const score = 4
+
 //quando avro i dati di Giuseppe
 //const score = Number(sessionStorage.getItem("score"))
-//const totalQuestions = Number(sessionStorage.getItem("totalQuestions"))
+
+//funzione che conta il numero complessivo di domande
+//dall'array fornito contenente le domande
+function countQuestion(arrQuestions){
+    return arrQuestions.length
+}
+
+const totalQuestions = countQuestion(questions)
 
 
 //Funzione che presi i dati forniti calcola le risposte totali, corrette, incorrette, e le varie percentuali

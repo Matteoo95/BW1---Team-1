@@ -40,12 +40,10 @@ let currentCorrectAnswer = null
 // contenitore salvataggio risposta utente corrente
 let currentUserAnswer = null
 
-// funzione dinamica lunghezza array
-function findTotalQuestions(array) {
-    let totalQuestions = 0
-    for (let i = 0; i < array.length; i++) {
-        totalQuestions +=1
-        return totalQuestions
+// funzione verifica risposta
+function checkAnswer(correctAnswer, userAnswer) {
+    if (userAnswer === correctAnswer) {
+        correctAnswerCounter +=1
     }
 }
 
@@ -76,6 +74,8 @@ function renderAnswers(answers) {
         // Nelle domande vere non ci sono tag HTML, quindi innerHTML non crea problemi
         answerButton.innerHTML = answer
         answersContainer.appendChild(answerButton)
+        //setInterval(timer, 1000)
+        
 
         // SELEZIONE: al click coloro solo la risposta scelta.
         // La classe "selected" è scritta in quiz.css da Matteo
@@ -96,8 +96,6 @@ function renderAnswers(answers) {
 
             // passo la risposta scelta a submitAnswer, la funzione di Giuseppe
             submitAnswer(answer)
-            
-            
         })
     }
 }
@@ -118,6 +116,7 @@ function updateQuestionCounter(current, total) {
 // submitAnswer di prova: stampa la risposta e passa alla domanda successiva
 function submitAnswer(answer) {
     console.log("Risposta ricevuta:", answer)
+    
 
     //salvo la risposta corrente
     const current = answer
@@ -125,7 +124,7 @@ function submitAnswer(answer) {
 
     //verifico la risposta
     checkAnswer(currentCorrectAnswer, currentUserAnswer)
-
+    console.log(correctAnswerCounter)
     // salvo in next il risultato della funzione di Alessandro, cioè la domanda successiva
     const next = extractAnswersQuestion()
 
@@ -142,7 +141,6 @@ function submitAnswer(answer) {
 }
 
 // all'apertura della pagina mostro la prima domanda
-console.log(totalQuestions)
 renderQuestion(extractAnswersQuestion())
 updateQuestionCounter(currentPosition, questions.length)
 

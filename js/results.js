@@ -1,4 +1,4 @@
-const score = 4
+const score = Number(sessionStorage.getItem("score"))
 
 //quando avro i dati di Giuseppe
 //const score = Number(sessionStorage.getItem("score"))

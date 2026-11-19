@@ -131,6 +131,11 @@ function submitAnswer(answer) {
     if (next === null) {
         console.log("Domande finite")
         console.log(correctAnswerCounter)
+        //aggiungo il salvataggio in locale di correct answer counter in chiave "score"
+        sessionStorage.setItem("score", correctAnswerCounter)
+
+        //cambia pagina a results
+        window.location.href = "./results.html"
         return
     }
 

@@ -28,6 +28,25 @@ const questionCurrent = document.getElementById("question-current")
 const questionTotal = document.getElementById("question-total")
 
 
+// contatore risposte corrette
+let correctAnswerCounter = 0
+
+// contenitore domande totali
+let totalQuestions = questions.length
+
+// contenitore salvataggio risposta corretta domanda corrente
+let currentCorrectAnswer = null
+
+// contenitore salvataggio risposta utente corrente
+let currentUserAnswer = null
+
+// funzione verifica risposta
+function checkAnswer(correctAnswer, userAnswer) {
+    if (userAnswer === correctAnswer) {
+        correctAnswerCounter +=1
+    }
+}
+
 // Mostra nella pagina la domanda ricevuta e le sue risposte.
 // Riceve: un oggetto { question: stringa, answers: array di stringhe }
 // Non controlla se la risposta è giusta: quello lo fa submitAnswer
@@ -35,6 +54,7 @@ function renderQuestion(currentQuestion) {
     // innerHTML e non textContent: vedi il commento in renderAnswers
     questionText.innerHTML = currentQuestion.question
     renderAnswers(currentQuestion.answers)
+    currentCorrectAnswer = currentQuestion.correctAnswer  
 }
 
 
@@ -53,6 +73,8 @@ function renderAnswers(answers) {
         // Nelle domande vere non ci sono tag HTML, quindi innerHTML non crea problemi
         answerButton.innerHTML = answer
         answersContainer.appendChild(answerButton)
+        //setInterval(timer, 1000)
+        
 
         // SELEZIONE: al click coloro solo la risposta scelta.
         // La classe "selected" è scritta in quiz.css da Matteo
@@ -93,13 +115,22 @@ function updateQuestionCounter(current, total) {
 // submitAnswer di prova: stampa la risposta e passa alla domanda successiva
 function submitAnswer(answer) {
     console.log("Risposta ricevuta:", answer)
+    
 
+    //salvo la risposta corrente
+    const current = answer
+    currentUserAnswer = current
+
+    //verifico la risposta
+    checkAnswer(currentCorrectAnswer, currentUserAnswer)
+    console.log(correctAnswerCounter)
     // salvo in next il risultato della funzione di Alessandro, cioè la domanda successiva
     const next = extractAnswersQuestion()
 
     // se è null le domande sono finite
     if (next === null) {
         console.log("Domande finite")
+        console.log(correctAnswerCounter)
         return
     }
 
@@ -111,3 +142,5 @@ function submitAnswer(answer) {
 // all'apertura della pagina mostro la prima domanda
 renderQuestion(extractAnswersQuestion())
 updateQuestionCounter(currentPosition, questions.length)
+
+

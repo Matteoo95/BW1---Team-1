@@ -1,15 +1,11 @@
 
 /* FONT DEL SITO */
 
-/* font  imposrtati da Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap');
 
 
-/* VARIABILI GLOBALI §(di tutti i documenti) */
+/* VARIABILI GLOBALI */
 
-/* :root collegando il file alle pagine HTML, tutte potranno utilizzare gli stessi colori.
-I due trattini -- servono per creare una variabile.
-Con var() posso richiamarla nel CSS. */
 
 :root {
     --text: #f5f5fa;
@@ -23,7 +19,6 @@ Con var() posso richiamarla nel CSS. */
 
 /* IMPOSTAZIONI GENERALI */
 
-/* il simbolo * seleziona tutti gli elementi */
 * {
     box-sizing: border-box;
 }
@@ -33,23 +28,14 @@ html {
 }
 
 body {
-    /* elimino i margini predefiniti */
     margin: 0;
 
-    /* altezza minima pari alla finestra del browser */
     min-height: 100vh;
 
-    /* imposto colore e immagine di sfondo:
-       center = immagine centrata
-       cover = copre tutto lo spazio
-       no-repeat = non si ripete
-       fixed = rimane fissa durante lo scroll */
     background: var(--background) url('../assets/bg.jpg') center center / cover no-repeat fixed;
 
-    /* richiamo il colore del testo da :root */
     color: var(--text);
 
-    /* font principale del sito */
     font-family: 'Inter', Arial, sans-serif;
     font-size: 16px;
 }
@@ -59,16 +45,14 @@ body {
 
 button,
 input {
-    /* prendono il font dall'elemento genitore */
     font: inherit;
 }
 
 button {
-    /* il cursore diventa la manina che indica */
     cursor: pointer;
 }
 
-/* quando navigo con il cursore, evidenzio il pulsante o il campo selezionato */
+/* evidenzio l'elemento attivo quando si naviga da tastiera */
 button:focus-visible,
 input:focus-visible {
     outline: 3px solid var(--cyan);
@@ -97,10 +81,8 @@ h3 {
 .page {
     width: calc(100% - 48px);
 
-    /* non supera la larghezza impostata in :root */
     max-width: var(--content-width);
 
-    /* centro il contenitore orizzontalmente */
     margin: 0 auto;
 
     min-height: 100vh;
@@ -120,8 +102,6 @@ h3 {
 }
 
 
-
-
 /* PULSANTE PRINCIPALE */
 
 .primary-button {
@@ -136,12 +116,10 @@ h3 {
     font-weight: 800;
     font-size: 20px;
 
-    /* creo l'effetto neon con due ombre */
     box-shadow:
         0 0 12px rgba(0, 255, 255, .5),
         0 0 28px rgba(0, 255, 255, .35);
 
-    /* rendo graduale il movimento e la luminosità */
     transition:
         transform .2s ease,
         box-shadow .2s ease;
@@ -150,11 +128,9 @@ h3 {
 
 /* EFFETTO AL PASSAGGIO DEL MOUSE */
 
-/* applico l'effetto solo se il pulsante è attivo */
 .primary-button:hover:not(:disabled) {
     transform: translateY(-2px);
 
-    /* aumento la luminosità */
     box-shadow:
         0 0 18px rgba(0, 255, 255, .65),
         0 0 40px rgba(0, 255, 255, .45);
@@ -164,13 +140,10 @@ h3 {
 /* PULSANTE DISABILITATO */
 
 .primary-button:disabled {
-    /* rendo il pulsante meno visibile */
     opacity: .5;
 
-    /* indico che non può essere cliccato */
     cursor: not-allowed;
 
-    /* elimino l'effetto neon */
     box-shadow: none;
 }
 
@@ -178,7 +151,6 @@ h3 {
 /* RESPONSIVE */
 
 @media (max-width: 600px) {
-
     .page {
         width: calc(100% - 36px);
     }

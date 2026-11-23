@@ -19,13 +19,11 @@
 /* TIMER */
 
 .timer {
-    /* posizioniamo il testo dentro il timer */
     position: relative;
 
     width: 110px;
     height: 110px;
 
-    /* evitiamo modifiche di dimensioniw */
     flex: none;
 
     margin-top: 0;
@@ -43,21 +41,18 @@
 }
 
 
-/*  proprietà comuni ai due cerchi */
+/* PROPRIETÀ COMUNI AI DUE CERCHI */
 .timer-track,
 .timer-progress {
-    /* nessun riempimento dei cerchi */
     fill: none;
 
-    /* spessore del bordo */
     stroke-width: 11;
 }
 
 
-/* CERCHIO SULLOSFONDO */
+/* CERCHIO DI SFONDO */
 
 .timer-track {
-    /* colore del cerchio con trasparenza */
     stroke: rgba(244, 184, 239, .42);
 }
 
@@ -67,10 +62,8 @@
 .timer-progress {
     stroke: var(--cyan);
 
-    /* imposto le estremità della linea */
     stroke-linecap: butt;
 
-    /* rendo graduale il movimento del cerchio */
     transition: stroke-dashoffset .35s linear;
 }
 
@@ -80,7 +73,6 @@
 .timer-content {
     position: absolute;
 
-    /* imposto tutti i lati a 0 per occupare il contenitore */
     top: 0;
     right: 0;
     bottom: 0;
@@ -116,7 +108,6 @@
 .quiz-main {
     width: 100%;
 
-    /* occupo lo spazio disponibile nella pagina */
     flex: 1;
 
     display: flex;
@@ -137,7 +128,6 @@
     margin: 0 0 56px;
     text-align: center;
 
-    /* adatto la dimensione del testo allo schermo */
     font-size: clamp(33px, 5vw, 50px);
 
     font-weight: 500;
@@ -154,10 +144,8 @@
     width: 100%;
     max-width: 720px;
 
-    /* griglia di due colonne */
     display: grid;
 
-    /*  due colonne della stessa larghezza */
     grid-template-columns: repeat(2, minmax(0, 1fr));
 
     gap: 20px 40px;
@@ -186,10 +174,8 @@
     font-weight: 700;
     font-size: 15px;
 
-    /* mando a capo il testo se è troppo lungo */
     overflow-wrap: anywhere;
 
-    /* rendo graduali le modifiche grafiche */
     transition:
         background .15s,
         border-color .15s,
@@ -199,12 +185,10 @@
 
 /* RISPOSTA SELEZIONATA */
 
-/* cambio il colore quando passo con il mouse
-   oppure quando seleziono una risposta */
+/* stesso stile per hover e risposta selezionata */
 
 .answer-button:hover:not(:disabled),
 .answer-button.selected {
-    /* creo una sfumatura dal rosa al viola */
     background: linear-gradient(120deg, var(--pink), var(--purple));
 
     border-color: rgba(255, 255, 255, .8);
@@ -237,11 +221,9 @@
 }
 
 
-
 /* RESPONSIVE */
 
 @media (max-width: 650px) {
-
     .timer {
         width: 83px;
         height: 83px;

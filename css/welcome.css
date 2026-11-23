@@ -10,12 +10,10 @@
 /* TITOLO WELCOME */
 
 .welcome-title {
-    /* adatto la grandezza del titolo allo schermo, minimo 48px e massimo 78px */
     font-size: clamp(48px, 7vw, 78px);
 
     font-weight: 400;
 
-    /* riduco la distanza tra le righe */
     line-height: .83;
 
     letter-spacing: -2px;
@@ -60,7 +58,6 @@
 .welcome-actions {
     display: flex;
 
-    /* metto il checkbox a sinistra e il pulsante a destra */
     justify-content: space-between;
 
     align-items: center;
@@ -72,7 +69,6 @@
 /* TESTO DEL CHECKBOX */
 
 .promise-label {
-    /* uso flex per allineare checkbox e testo, mantenendo la label inline */
     display: inline-flex;
 
     align-items: center;
@@ -90,10 +86,8 @@
     height: 19px;
     margin: 0;
 
-    /* cambio il colore del checkbox quando viene selezionato */
     accent-color: var(--cyan);
 
-    /* impedisco al checkbox di restringersi o allargarsi con flex */
     flex: none;
 }
 
@@ -101,7 +95,6 @@
 /* RESPONSIVE */
 
 @media (max-width: 650px) {
-
     .welcome-main {
         padding-top: 72px;
     }

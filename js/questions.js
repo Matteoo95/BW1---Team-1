@@ -94,9 +94,6 @@ const questions = [
   },
 ];
 
-// creo una lista di indici e poi li randomizzo al fine di andare a
-//prendere un oggetto sempre diverso ed avere quindi una domanda sempre diversa
-
 function extractArrayIndex(array) {
   const availableIndex = [];
 
@@ -107,7 +104,8 @@ function extractArrayIndex(array) {
   return availableIndex;
 }
 
-// Mescola gli indici delle domande
+// Mescola gli indici e non l'array, 
+// così i dati originali restano intatti
 function randomizeArrayIndex(array) {
   const randomizedIndex = extractArrayIndex(array);
 
@@ -122,7 +120,7 @@ function randomizeArrayIndex(array) {
   return randomizedIndex;
 }
 
-// Mescola le risposte di una domanda
+// Mescola le risposte su una copia dell'array
 function randomizeAnswers(answers) {
   const randomizedAnswers = [...answers];
 
@@ -140,10 +138,10 @@ function randomizeAnswers(answers) {
 const randomizedIndexes = randomizeArrayIndex(questions);
 let currentPosition = 0;
 
-// Chiamala per ottenere la domanda successiva
+// Restituisce la domanda successiva, oppure null quando sono finite
 function extractAnswersQuestion() {
   if (currentPosition >= randomizedIndexes.length) {
-    return null; // quando ricevi null dovrebbe finire il test
+    return null;
   }
 
   const questionData = questions[randomizedIndexes[currentPosition]];
@@ -160,14 +158,4 @@ function extractAnswersQuestion() {
     correctAnswer: questionData.correct_answer,
   };
 }
-/* console.log(extractAnswersQuestion());
-console.log(extractAnswersQuestion());
-console.log(extractAnswersQuestion());
-console.log(extractAnswersQuestion());
-console.log(extractAnswersQuestion());
-console.log(extractAnswersQuestion());
-console.log(extractAnswersQuestion());
-console.log(extractAnswersQuestion());
-console.log(extractAnswersQuestion());
-console.log(extractAnswersQuestion());
-console.log(extractAnswersQuestion()); */
+

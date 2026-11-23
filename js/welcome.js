@@ -1,8 +1,7 @@
 const checkbox  = document.getElementById("promise-checkbox")
 const button    = document.getElementById("proceed-button")
 
-//quando la checkbox cambia, quindi viene selzionata, 
-//tolgo l'attributo disabled, altrimenti se toglie la spunto lo rimetto 
+// Il bottone PROCEED si abilita solo quando la checkbox è spuntata
 checkbox.addEventListener("change", () => {
     if (checkbox.checked) {
         button.removeAttribute("disabled")
@@ -11,7 +10,6 @@ checkbox.addEventListener("change", () => {
     }   
 })
 
-//quando il bottone è abilitato, al click si carica la pagina del quiz
 button.addEventListener("click", () =>{
     window.location.href = "./quiz.html"
 })

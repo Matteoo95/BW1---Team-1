@@ -60,10 +60,7 @@ function submitAnswer(answer) {
 
     if (next === null) {
         // Salvo i risultati per la pagina results.html
-        sessionStorage.setItem("quizResults", JSON.stringify({
-            correct: correctAnswers,
-            total: questions.length
-        }))
+        sessionStorage.setItem("score", correctAnswers)
         window.location.href = "./results.html"
         return
     }

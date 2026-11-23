@@ -33,11 +33,18 @@
      () => submitAnswer(null)
  )
 
+ // Variabili per memorizzare le risposte corrette e la domanda attuale
+ let correctAnswers = 0
+ let activeQuestion = null
+
 
  // Mostra nella pagina la domanda ricevuta e le sue risposte.
  // Riceve: un oggetto { question: stringa, answers: array di stringhe }
  // Non controlla se la risposta è giusta: quello lo fa submitAnswer
  function renderQuestion(currentQuestion) {
+     // Memorizzo la domanda attuale per verificare la risposta
+     activeQuestion = currentQuestion
+
      // innerHTML e non textContent: vedi il commento in renderAnswers
      questionText.innerHTML = currentQuestion.question
      renderAnswers(currentQuestion.answers)
@@ -100,18 +107,30 @@
 
  // submitAnswer di prova: stampa la risposta e passa alla domanda successiva
  function submitAnswer(answer) {
-         questionTimer.stop()
+     questionTimer.stop()
      console.log("Risposta ricevuta:", answer)
+
+     // Controllo se la risposta data è corretta
+     if (answer !== null && answer === activeQuestion.correctAnswer) {
+         correctAnswers++
+     }
 
      // salvo in next il risultato della funzione di Alessandro, cioè la domanda successiva
      const next = extractAnswersQuestion()
 
      // se è null le domande sono finite
      if (next === null) {
-    console.log("Domande finite")
-    window.location.href = "./results.html"
-    return
+         console.log("Domande finite")
 
+         // Salvo i risultati nella memoria della sessione
+         sessionStorage.setItem("quizResults", JSON.stringify({
+             correct: correctAnswers,
+             total: questions.length
+         }))
+
+         // Passo alla pagina dei risultati
+         window.location.href = "./results.html"
+         return
      }
 
      // altrimenti mostro la nuova domanda e aggiorno il contatore

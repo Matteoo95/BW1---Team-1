@@ -10,7 +10,6 @@
 /* TITOLO E SOTTOTITOLO */
 
 .results-title {
-    /* adatto il titolo allo schermo, da 46px a 66px */
     font-size: clamp(46px, 7vw, 66px);
     margin: 0 0 8px;
     line-height: 1;
@@ -28,7 +27,6 @@
 .results-summary {
     display: grid;
 
-    /* creo tre colonne, quella centrale è larga 220px */
     grid-template-columns: 1fr 220px 1fr;
 
     align-items: center;
@@ -62,8 +60,7 @@
     border-radius: 50%;
     padding: 16px;
 
-    /* creo il grafico con due colori.
-       JS aggiorna la variabile --score-percent */
+    /* grafico a due colori: JS aggiorna la variabile --score-percent */
     background: conic-gradient(
         var(--cyan) 0 var(--score-percent, 0%),
         var(--pink) var(--score-percent, 0%) 100%
@@ -71,7 +68,6 @@
 
     display: grid;
 
-    /* centro il cerchio interno */
     place-items: center;
 }
 
@@ -104,7 +100,6 @@
 .results-main .primary-button {
     text-decoration: none;
 
-    /* uso inline-flex per centrare il testo del link */
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -114,7 +109,6 @@
 /* RESPONSIVE */
 
 @media (max-width: 650px) {
-
     .results-main {
         padding-top: 70px;
     }
@@ -126,10 +120,8 @@
     }
 
     .score-visual {
-        /* il grafico occupa entrambe le colonne */
         grid-column: 1 / -1;
 
-        /* posiziono il grafico nella prima riga */
         grid-row: 1;
 
         margin: auto;

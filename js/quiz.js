@@ -107,7 +107,7 @@
      const next = extractAnswersQuestion()
 
      // se è null le domande sono finite
-     if if (next === null) {
+     if (next === null) {
     console.log("Domande finite")
     window.location.href = "./results.html"
     return

@@ -160,7 +160,7 @@ function extractAnswersQuestion() {
     correctAnswer: questionData.correct_answer,
   };
 }
-/*console.log(extractAnswersQuestion());
+/* console.log(extractAnswersQuestion());
 console.log(extractAnswersQuestion());
 console.log(extractAnswersQuestion());
 console.log(extractAnswersQuestion());
@@ -170,4 +170,4 @@ console.log(extractAnswersQuestion());
 console.log(extractAnswersQuestion());
 console.log(extractAnswersQuestion());
 console.log(extractAnswersQuestion());
-console.log(extractAnswersQuestion());*/
+console.log(extractAnswersQuestion()); */

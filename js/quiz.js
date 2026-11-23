@@ -108,8 +108,10 @@
 
      // se è null le domande sono finite
      if (next === null) {
-         console.log("Domande finite")
-         return
+    console.log("Domande finite")
+    window.location.href = "./results.html"
+    return
+
      }
 
      // altrimenti mostro la nuova domanda e aggiorno il contatore
